@@ -1,4 +1,4 @@
 function Register(){
-    return <div>register</div>
+    return <div>Register </div>
 }
 export default Register;
