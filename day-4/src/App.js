@@ -6,8 +6,11 @@ import NotFound from "./NotFound";
 import UseState2 from "./UseState2";
 import UseEffect from "./26-05-24/UseEffect";
 import UseEffect3 from "./29-05-24/UseEffect3";
-import UserDetails from "./29-05-24/30-05-24/UserDetails";
-import Routing from "./29-05-24/30-05-24/Routing";
+import Routing from "./30-05-24/Routing";
+import UserDetails from "./30-05-24/UserDetails";
+import Mapping from "./2-05-24/Mapping";
+import AllProducts from "./30-05-24/AllProducts";
+
 
 
 
@@ -21,9 +24,11 @@ function App() {
         <Route  path="/UseState2" element={<UseState2/>} />
         <Route  path="/UseEffect" element={<UseEffect/>} />
         <Route  path="/UseEffect3" element={<UseEffect3/>} />
-        <Route  path="/UserDetails" element={<UserDetails/>} />
-        <Route  path="/useNavigate" element={<Routing/>} />
-        
+        <Route path="/useNavigate" element={<Routing/>}/>
+        <Route  path="/user/:username" element={<UserDetails/>}/>
+        <Route  path="/user/:username/:Id" element={<UserDetails/>}/>
+        < Route path="/Mapping" element={< Mapping  students={["virat","rohit","rahul"]}/>}/>
+        < Route  path="/all-product" element={< AllProducts/>}/>
       </Routes>
     </div>
   );
