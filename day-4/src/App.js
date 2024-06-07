@@ -10,7 +10,11 @@ import Routing from "./30-05-24/Routing";
 import UserDetails from "./30-05-24/UserDetails";
 import Mapping from "./2-05-24/Mapping";
 import AllProducts from "./30-05-24/AllProducts";
-
+// import FunctionProp from "./4-05-24/FunctionProp";
+import StyleComponent from "./4-05-24/StyleComponent";
+import InlineStyling from "./4-05-24/InlineStyling";
+import FunctionProp from "./Practice  folder/FunctionProp";
+import Todo from "./6-06-24/Todo";
 
 
 
@@ -29,6 +33,10 @@ function App() {
         <Route  path="/user/:username/:Id" element={<UserDetails/>}/>
         < Route path="/Mapping" element={< Mapping  students={["virat","rohit","rahul"]}/>}/>
         < Route  path="/all-product" element={< AllProducts/>}/>
+        <Route path="/function-prop" element={<FunctionProp/>}/>
+        <Route path="/StyledComponent" element={<StyleComponent/>}/>
+        <Route path="/Inline-styling" element={<InlineStyling/>}/>
+        <Route path="Todo" element={<Todo/>}/>
       </Routes>
     </div>
   );
