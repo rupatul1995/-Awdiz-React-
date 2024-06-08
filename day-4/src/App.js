@@ -15,6 +15,7 @@ import StyleComponent from "./4-05-24/StyleComponent";
 import InlineStyling from "./4-05-24/InlineStyling";
 import FunctionProp from "./Practice  folder/FunctionProp";
 import Todo from "./6-06-24/Todo";
+import Register from "./8-06-24/Register";
 
 
 
@@ -38,6 +39,7 @@ function App() {
         <Route path="/StyledComponent" element={<StyleComponent/>}/>
         <Route path="/Inline-styling" element={<InlineStyling/>}/>
         <Route path="Todo" element={<Todo/>}/>
+        <Route path="/register" element={<Register/>}/>
       </Routes>
     </div>
   );
