@@ -12,9 +12,7 @@ const Register = () => {
 
   console.log(userData, "userData");
   function handleChange(event) {
-    // console.log(event.target.value, event.target.name);
     setUserData({ ...userData, [event.target.name]: event.target.value });
-    // Obj["awdiz"]
   }
 
   async function handleSubmit(e) {
@@ -22,7 +20,6 @@ const Register = () => {
     // api call to backend
     try {
       if (userData.name && userData.email && userData.password) {
-        //   const response = await axios.post("https://awdiz-7/api/v1/user/register" , {userData});
         const response = {
           data: { success: true, message: "Regsiter successfull." },
         };
@@ -36,13 +33,10 @@ const Register = () => {
           toast.success(response.data.message);
         }
       } else {
-        throw Error("All fields are mandatory.");
-        // toast.error("All fields are mandatory.");
+        toast.error("All fields are mandatory.");
       }
     } catch (error) {
       console.log(error, "error");
-      //   console.log(error);
-      //   error =  { data : { success : false, message : "Password is invalid."}}
       toast.error(error.response.data.message);
     }
   }
