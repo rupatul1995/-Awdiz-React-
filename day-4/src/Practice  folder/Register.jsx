@@ -2,37 +2,21 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 
 function Register(){
-    const[mydata,setData]=useState({
+    const[myData,setData]=useState({
         Name : "", 
         Email :"", 
         password :""});
-    function HandlerChange(event){
-        setData({...setData,[event.target.name] :event.target.value});
-        // setData({[event.target.name]:event.target.value})
-    }
-  
-     async function handlerSubmit(e){
+ 
+function HandlerChange(event){
+    setData({...myData,[event.target.name]:event.target.value})
+}
+function handlerSubmit(e){
      e.preventDefult();
-     try{
-        if(mydata.Name && mydata.Email && mydata.password){
-           const response ={data:{success:true, message:"Register successfull."}}
-         if(response.data.success){
-            setData({
-                Name:"",
-                email:"",
-                password:"",
-            });
-          toast.success(response.data.massege);
-        }
-        }else{
-            toast.error("all fields are mendotory");
-        }
-
-     }catch(error){
-        toast.error(error.response.data.massage);
-
+     if(myData.name && myData.Email  && myData.password){
+        const response={ data:{success:true , massage:"Register successfully."}}
+        if()
      }
-    }
+}
     return(
 <div>
     <h1>Register</h1>
