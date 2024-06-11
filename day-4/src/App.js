@@ -15,9 +15,14 @@ import StyleComponent from "./4-05-24/StyleComponent";
 import InlineStyling from "./4-05-24/InlineStyling";
 import FunctionProp from "./Practice  folder/FunctionProp";
 import Todo from "./6-06-24/Todo";
-// import Register from "./8-06-24/Register";
+import Register from "./8-06-24/Register";
 import Login from "./8-06-24/Login";
-import Register from "./Practice  folder/Register";
+import Registervalidation from "./09-06-24/Registervalidation";
+import Successlogin from "./09-06-24/Successlogin";
+import Loginvalidation from "./09-06-24/Loginvalidation";
+import ContactForm from "./09-06-24/ContactForm";
+
+
 
 
 
@@ -43,7 +48,10 @@ function App() {
         <Route path="Todo" element={<Todo/>}/>
         <Route path="/Register" element={<Register/>}/>
         <Route path="/Login" element={<Login/>}/>
-        <Route path="/Register" element={<Register/>}/>
+        <Route path="/Registervalidation" element={<Registervalidation/>}/>
+        <Route path="/loginvalidation" element={<Loginvalidation/>}/>
+        <Route path="/Successlogin" element={<Successlogin/>}/>
+        <Route path="/ContacForm" element={<ContactForm/>}/>
       </Routes>
     </div>
   );
