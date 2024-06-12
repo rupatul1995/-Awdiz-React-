@@ -21,6 +21,9 @@ import Registervalidation from "./09-06-24/Registervalidation";
 import Successlogin from "./09-06-24/Successlogin";
 import Loginvalidation from "./09-06-24/Loginvalidation";
 import ContactForm from "./09-06-24/ContactForm";
+import AllProductsLoding from "./11-06-24/AllProductLoding";
+
+
 
 
 
@@ -51,7 +54,11 @@ function App() {
         <Route path="/Registervalidation" element={<Registervalidation/>}/>
         <Route path="/loginvalidation" element={<Loginvalidation/>}/>
         <Route path="/Successlogin" element={<Successlogin/>}/>
-        <Route path="/ContacForm" element={<ContactForm/>}/>
+        <Route path="/contacform" element={<ContactForm/>}/>
+        {/* <Route path="/conponant" element={<Conponant/>}/> */}
+        <Route path="/All-ProductsLoding" element={<AllProductsLoding/>}/>
+        
+        
       </Routes>
     </div>
   );
