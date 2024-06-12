@@ -122,7 +122,7 @@ function AllProductsLoding (){
                   />
                   <p>Title : Loading</p>
                   <p>Price : Laoding</p>
-                </div>
+                </div>  
     
                 <div
                   style={{
