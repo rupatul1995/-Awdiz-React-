@@ -23,6 +23,7 @@ import Loginvalidation from "./09-06-24/Loginvalidation";
 import ContactForm from "./09-06-24/ContactForm";
 import AllProductsLoding from "./11-06-24/AllProductLoding";
 import AllProducts from "./11-06/AllProducts";
+import Reducer from "./15-06-24/Reducer";
 
 
 
@@ -60,6 +61,7 @@ function App() {
         {/* <Route path="/conponant" element={<Conponant/>}/> */}
         <Route path="/All-ProductsLoding" element={<AllProductsLoding/>}/>
         <Route path="/AllProducts" element={<AllProducts/>}/>
+        <Route path="/reducer" element={<Reducer/>}/>
         
         
       </Routes>
