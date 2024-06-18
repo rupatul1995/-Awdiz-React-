@@ -4,9 +4,11 @@ import './index.css';
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
 import {Toaster} from "react-hot-toast";
+import MyContextProvider from './context/auth.context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <MyContextProvider>
  <BrowserRouter>
   <Toaster
         position="top-center"
@@ -35,5 +37,6 @@ root.render(
       />
     <App />
  </BrowserRouter>
+ </MyContextProvider>
 );
 
