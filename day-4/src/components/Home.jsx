@@ -2,9 +2,11 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { CounterContext } from "../15-06-24/Counter.Context";
+import { themeContext } from "../18-06-24/theme.context";
 
 function Home(){
     const {state}=useContext(CounterContext);
+    const{themState}=useContext(themeContext);
 const router=useNavigate();
     return (        
     <div><h1>Home page:-{state?.counter }</h1>
