@@ -15,6 +15,7 @@ function reducer(state, action){
 }
 const initialState={counter:0};
 const Reducer = () => {
+    
     const [state ,dispatch]=useReducer(reducer, initialState);
 
     function Increment(){
@@ -25,6 +26,7 @@ const Reducer = () => {
     }
     function Reset(){
         dispatch({type:"Reset"});
+       
     }
     return( 
          <div>

@@ -5,9 +5,11 @@ import App from './App';
 import {BrowserRouter} from "react-router-dom";
 import {Toaster} from "react-hot-toast";
 import MyContextProvider from './context/auth.context';
+import MyCounterContextProvider from './15-06-24/Counter.Context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  < MyCounterContextProvider>
   <MyContextProvider>
  <BrowserRouter>
   <Toaster
@@ -38,5 +40,6 @@ root.render(
     <App />
  </BrowserRouter>
  </MyContextProvider>
+ </MyCounterContextProvider>
 );
 

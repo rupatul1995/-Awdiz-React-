@@ -24,6 +24,7 @@ import ContactForm from "./09-06-24/ContactForm";
 import AllProductsLoding from "./11-06-24/AllProductLoding";
 import AllProducts from "./11-06/AllProducts";
 import Reducer from "./15-06-24/Reducer";
+import Counter from "./15-06-24/Counter";
 
 
 
@@ -62,6 +63,7 @@ function App() {
         <Route path="/All-ProductsLoding" element={<AllProductsLoding/>}/>
         <Route path="/AllProducts" element={<AllProducts/>}/>
         <Route path="/reducer" element={<Reducer/>}/>
+        <Route path="/counter" element={<Counter/>}/>
         
         
       </Routes>
