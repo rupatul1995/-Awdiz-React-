@@ -8,6 +8,7 @@ import MyContextProvider from './context/auth.context';
 import MyCounterContextProvider from './15-06-24/Counter.Context';
 import ThemeContextProvider from './18-06-24/theme.context';
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   < MyCounterContextProvider>
