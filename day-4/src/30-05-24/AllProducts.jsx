@@ -36,7 +36,8 @@ function AllProducts(){
 
 
             {allProducts.map((product)=>(
-                <div style={{width:"23%", height:"700px" , border:"2px solid black" , marginBottom:"15px", borderRadius:"20px"
+                <div style={{width:"23%", height:"700px" ,
+                     border:"2px solid black" , marginBottom:"15px", borderRadius:"20px"
             }}>
                     <img  style={{width:"90%", height:"50%"}}  src ={product.image}/>
                 <p>title:{product.title}</p>
