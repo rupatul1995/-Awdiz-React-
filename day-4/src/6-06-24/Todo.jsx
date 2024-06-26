@@ -28,7 +28,7 @@ const[allTodos , setALLTodo]=useState([]);
     <br/>
     <br/>
     <button  style={{width:"10%", height:"40px" }} onClick={HandlerSubmit}>Submit </button>
-    <h1 style={{color:"purple"}}>All Todos.</h1>
+    < h1 style={{color:"purple"}}>All Todos.</h1>
     {allTodos.map((Todo ,i)=>(
         <div key={i} style={{
             display:"flex", 
