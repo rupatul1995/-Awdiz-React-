@@ -12,7 +12,6 @@ import ThemeContextProvider from './18-06-24/theme.context';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   < MyCounterContextProvider>
-  <Provider store={store}>
   <ThemeContextProvider>
   <MyContextProvider>
  <BrowserRouter>
@@ -45,7 +44,6 @@ root.render(
  </BrowserRouter>
  </MyContextProvider>
  </ThemeContextProvider>
- </Provider>
  </MyCounterContextProvider>
 );
 
