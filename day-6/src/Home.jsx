@@ -16,7 +16,7 @@ function Home  ()  {
   return (
     <div>
       <h2>Home -{userData?.name}</h2>
-      <button onClick={handleLogout}>Logout</button>
+      <button onClick={handleLogout}>Login</button>
     </div>
   );
 };
