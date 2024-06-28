@@ -4,8 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { logout } from './authSlice';
 
 function Home  ()  {
-  const { user } = useSelector((state) => state.auth);
-  const { welcomeMessage } = useSelector((state) => state.home);
+  const userData = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const router =useNavigate();
 
@@ -16,9 +15,7 @@ function Home  ()  {
 
   return (
     <div>
-      <h2>Home</h2>
-      {user && <p>Rupali, {user.Rupali}</p>}
-      <p>{welcomeMessage}</p>
+      <h2>Home -{userData?.name}</h2>
       <button onClick={handleLogout}>Logout</button>
     </div>
   );
