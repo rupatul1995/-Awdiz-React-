@@ -1,20 +1,20 @@
-// function FunctionProp(){
-//     function HandleClick(){
-//         console.log("Clicked.")
-//     }
-//     return (
-//         <div>
-//             <h1>FunctionProp</h1>
-//            < ChildrenComponent   buttonValue="Click me"  HandleClick={HandleClick}/>
-//         </div>
-//     );
-// }
+function FunctionProp(){
+    function HandleClick(){
+        console.log("Clicked.")
+    }
+    return (
+        <div>
+            <h1>FunctionProp</h1>
+           < ChildrenComponent   buttonValue="Click me"  HandleClick={HandleClick}/>
+        </div>
+    );
+}
 
 
-// function ChildrenComponent({buttonValue,HandleClick}){
-//     return <button onClick={HandleClick}>{buttonValue}</button>
-// }
-// export default FunctionProp;
+function ChildrenComponent({buttonValue,HandleClick}){
+    return <button onClick={HandleClick}>{buttonValue}</button>
+}
+export default FunctionProp;
 
 
 

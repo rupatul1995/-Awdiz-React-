@@ -7,6 +7,8 @@ import {Toaster} from "react-hot-toast";
 import MyContextProvider from './context/auth.context';
 import MyCounterContextProvider from './15-06-24/Counter.Context';
 import ThemeContextProvider from './18-06-24/theme.context';
+import { Provider } from 'react-redux';
+import store from './20-06-24/store';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -15,6 +17,7 @@ root.render(
   <ThemeContextProvider>
   <MyContextProvider>
  <BrowserRouter>
+ <Provider store={store}>
   <Toaster
         position="top-center"
         reverseOrder={false}
@@ -41,6 +44,7 @@ root.render(
         }}
       />
     <App />
+    </Provider>,
  </BrowserRouter>
  </MyContextProvider>
  </ThemeContextProvider>

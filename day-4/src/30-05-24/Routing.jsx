@@ -7,6 +7,7 @@ return(
     <div>
         <h1>UseNavigate</h1>
         <button onClick={()=>router("/")}>Go to Home page</button>
+        <button onClick={()=> router("/all-product  ")}> go to allproducts</button>
 
     </div>
 );
