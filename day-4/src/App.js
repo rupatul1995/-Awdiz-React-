@@ -26,6 +26,8 @@ import AllProductsLoding from "./11-06-24/AllProductLoding";
 import Reducer from "./15-06-24/Reducer";
 import Counter from "./15-06-24/Counter";
 import UseState3 from "./Practice  folder/UseState3";
+import UseCallbackComponent from "./29-06-24/UseCallbackComponent";
+import MemoComponent from "./29-06-24/MemoComponent";
 
 
 
@@ -68,6 +70,8 @@ function App() {
         <Route path="/reducer" element={<Reducer/>}/>
         <Route path="/counter" element={<Counter/>}/>
         <Route  path="/Use-State" element={<UseState3/>} /> 
+        <Route path="/usecallback" element={<UseCallbackComponent/>} />
+        <Route path="/memo" element={<MemoComponent/>} />
     
         
         
