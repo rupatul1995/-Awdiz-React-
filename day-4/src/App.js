@@ -29,6 +29,10 @@ import UseState3 from "./Practice  folder/UseState3";
 import UseCallbackComponent from "./29-06-24/UseCallbackComponent";
 import MemoComponent from "./29-06-24/MemoComponent";
 import UseMemoComponent from "./29-06-24/UseMemoComponent";
+import UseRefComponent from "./30-06-24/UseRefComponent";
+import UseRefComponent2 from "./30-06-24/UseRefComponent2";
+
+
 
 
 
@@ -74,7 +78,8 @@ function App() {
         <Route path="/usecallback" element={<UseCallbackComponent/>} />
         <Route path="/memo" element={<MemoComponent/>} />
         <Route path="/use-memocomponent" element={<UseMemoComponent/>}/>
-    
+        <Route path="/userefcomponent" element={<UseRefComponent  />} /> 
+        <Route path="/userefcomponent2" element={<UseRefComponent2/>} /> 
         
         
       </Routes>
