@@ -3,7 +3,7 @@ import axios from "axios";
 
 function AllProducts(){
     const [allProducts, setAllProducts]=useState([]);
-    console.log(allProducts, "allProducts ")
+    console.log(allProducts, "allProducts ");
  async   function GetProducts(){
         // alert("hii from get products");
         try{
