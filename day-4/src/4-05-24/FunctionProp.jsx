@@ -1,20 +1,21 @@
-function FunctionProp(){
-    function HandleClick(){
-        console.log("Clicked.")
-    }
-    return (
-        <div>
-            <h1>FunctionProp</h1>
-           < ChildrenComponent   buttonValue="Click me"  HandleClick={HandleClick}/>
-        </div>
-    );
-}
+// function FunctionProp(){
+//     function HandleClick(){
+//         console.log("Clicked.")
+//     }
+//     return (
+//         <div>
+//             <h1>FunctionProp</h1>
+//            < ChildrenComponent   buttonValue="Click me"  HandleClick={HandleClick}/>
+//         </div>
+//     );
+// }
 
 
-function ChildrenComponent({buttonValue,HandleClick}){
-    return <button onClick={HandleClick}>{buttonValue}</button>
-}
-export default FunctionProp;
+// function ChildrenComponent({buttonValue,HandleClick}){
+//     return <button onClick={HandleClick}>{buttonValue}</button>
+// }
+// export default FunctionProp;
+
 
 
 
@@ -94,3 +95,42 @@ export default FunctionProp;
 // }, [count]);
 
 // return 
+
+
+
+
+
+
+
+
+
+
+// practice :=
+
+
+import { useState } from "react";
+
+function  FunctionProp(){
+    const[counter,setCounter]=useState(0);
+    console.log(counter,"counter");
+    function Increment(){
+         setCounter(counter+1);
+    }
+return(
+<div>
+    <h1>function props</h1>
+    <h1>counter:{counter}</h1>
+    <ChildrentComponent  increment={Increment}/>
+</div>
+);
+
+function ChildrentComponent(increment){
+    return(
+    <div>
+        <button onClick={Increment}>+</button>
+    </div>
+    );
+}
+}
+export default FunctionProp;
+
