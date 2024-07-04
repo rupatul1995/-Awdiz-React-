@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 
+
+// pratice:- 2
+
 // import { useState } from "react";
 
 //  function Todo(){
@@ -53,39 +56,48 @@ import { useState } from "react";
 //   export default Todo;
 
 
-
-function Todo(){
-  const [todo , setTodo]=useState("");
-  const[allTodo , setAllTodo]=([]);
-  console.log(allTodo,"allTodo");
-  function HandlerChange(event){
-   setTodo(event.target.value);
-  }
-
-  function HandleSubmit(){
-    setAllTodo([todo]);
-    setTodo("");
-  }
-  return(
-    <div>
-      <h1>Todo</h1>
-      <input value={todo} onChange={HandlerChange}/>
-      <br/>
-      <button onClick={HandleSubmit} >Submit</button>
-
-        {allTodo.map((todo)=>(
-             <h1>{todo}</h1>
-          ))}
-   
-    </div>
-  );
-}
-
-export default Todo;
+// pratice:- 2
 
 
+// function Todo(){
+//   const [todo , setTodo]=useState("");
+//   const[allTodos , setAllTodo]=useState([]);
 
+//   console.log(allTodos,"-allTodos");
+//   function HandlerChange(event){
+//    setTodo(event.target.value);
+//   }
 
+//   function HandleSubmit(){
+//     setAllTodo([...allTodos,todo]);
+//     setTodo("");
+//   }
+//   function DeleteTodo(index){
+//     const newArray=[...allTodos]
+//     newArray.splice(index , 1);
+//     setAllTodo(newArray);
+//   }
+//   return(
+//     <div>
+//       <h1>Todo</h1>
+//       <input value={todo} onChange={HandlerChange}/>
+//       <br/>
+//       <button onClick={HandleSubmit} >Submit</button>
+//       {allTodos.map((Todo ,i)=>(
+//           <div key={i}>
+//              <h1> {""}
+//          {i+1}.{Todo}</h1>
+        
+//     <button onClick={()=>DeleteTodo(i)}>Delete</button>
+//     </div>
+//           ))}
+     
+//    </div>
+  
+//   );
+// }
+
+// export default Todo;
 
 
 
