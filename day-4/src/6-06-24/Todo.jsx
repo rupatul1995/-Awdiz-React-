@@ -133,3 +133,44 @@ import { useState } from "react";
 //     );
 // }
 // export default Todo;
+
+
+
+
+// pratice:- 3
+
+function  Todo(){
+    const[todo ,setTodo]=useState();
+    const[allTodo, setAllTodo]=useState([]);
+    function Handlechange(event){
+        setTodo(event.target.value);
+    }
+    function HandleSubmit(){
+        setAllTodo([...allTodo,todo]);
+        setTodo("");
+    }
+    function DeleteTodo(index){
+        const newArray=[...allTodo]
+        newArray.splice(index,1);
+        setAllTodo(newArray);
+    }
+    return(
+        <div>
+            <h1>Todo</h1>
+            <input value={todo} onChange={Handlechange}/>
+            <br/>
+            <button onClick={HandleSubmit}>Submit</button>
+            {allTodo.map((todo,i)=>(
+                <div key={i}>
+              <h1>  {""}
+              {i+1}.{todo}</h1> 
+              <button onClick={DeleteTodo}>DeleteTodo</button>
+              </div>
+            ))}
+             
+          
+        </div>
+    );
+}
+
+export default Todo;
