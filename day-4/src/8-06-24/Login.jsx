@@ -2,6 +2,9 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { AuthContext } from "../context/auth.context";
+import Api from "../axiosConfig";
+
+
 
 const Login = () => {
   const{ dispatch}=useContext(AuthContext);
@@ -19,33 +22,41 @@ const Login = () => {
 
   async function handleSubmit(e) {
     e.preventDefault();
- 
+    // api call to backend
     try {
       if (userData.email && userData.password) {
-        const response = {
-          data: { success: true, 
-            message: "Regsiter successfull.",
-            userData:{name:"Awdiz"} },
-        };
-
+          const response = await Api.post("/auth/login" , {userData});
+        // const response = {
+        //   data: {
+        //     success: true,
+        //     message: "Login successfull.",
+        //     userData: { name: "Awdiz" },
+        //   },
+        // };
         if (response.data.success) {
-          dispatch({type:'Login', payload:response.data.userData});
+          dispatch({ type: "LOGIN", payload: response.data.userData });
+          // LOGIN(userData)
           setUserData({
             email: "",
             password: "",
           });
           router("/");
           toast.success(response.data.message);
+        } else {
+          toast.error(response?.data?.error)
+          // console.log(response.data.error, "error")
         }
       } else {
-        toast.error("All fields are mandatory.");
+        throw Error("All fields are mandatory.");
+        // toast.error("All fields are mandatory.");
       }
     } catch (error) {
       console.log(error, "error");
-      toast.error(error.response.data.message);
+      //   console.log(error);
+      //   error =  { data : { success : false, message : "Password is invalid."}}
+      toast.error(error?.response?.data?.error);
     }
   }
-
   return (
     <div>
       <form onSubmit={handleSubmit}>
