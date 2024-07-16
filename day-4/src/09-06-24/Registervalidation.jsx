@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import Api from "../axiosConfig";
 
 const Registervalidation = () => {
   const router = useNavigate();
@@ -9,11 +10,15 @@ const Registervalidation = () => {
     email: "",
     password: "",
   });
-const[errors , setErrors]=useState([]);
-const[disable , setDisable]=useState(true);
+  const [errors, setErrors] = useState([]);
+  const [disable, setDisable] = useState(true);
+  console.log(errors, "errors");
+
   console.log(userData, "userData");
   function handleChange(event) {
+    // console.log(event.target.value, event.target.name);
     setUserData({ ...userData, [event.target.name]: event.target.value });
+    // Obj["awdiz"]
   }
 
   async function handleSubmit(e) {
@@ -21,50 +26,54 @@ const[disable , setDisable]=useState(true);
     // api call to backend
     try {
       if (userData.name && userData.email && userData.password) {
-        const response = {
-          data: { success: true, message: "Regsiter successfull." },
-        };
+          const response = await Api.post("/auth/register" , {userData});
+        // const response = {
+        //   data: { success: true, message: "Regsiter successfull." },
+        // };
         if (response.data.success) {
           setUserData({
             name: "",
             email: "",
             password: "",
           });
-          router("/Loginvalidation");
+          router("/login");
           toast.success(response.data.message);
         }
       } else {
-        toast.error("All fields are mandatory.");
+        throw Error("All fields are mandatory.");
+        // toast.error("All fields are mandatory.");
       }
     } catch (error) {
       console.log(error, "error");
-      toast.error(error.response.data.message);
+      //   console.log(error);
+      //   error =  { data : { success : false, message : "Password is invalid."}}
+      toast.error(error.response.data.error);
     }
   }
-  useEffect(()=>{
-    const errorArray=[];
-    if(!userData.name){
-        errorArray.push("Name is required");
+
+  useEffect(() => {
+    const errorsArray = [];
+    if (!userData.name) {
+      errorsArray.push("Name is required.");
     }
-    if(!userData.email){
-        errorArray.push("email is required");
+    if (!userData.email) {
+      errorsArray.push("Email is required.");
     }
-    if(!userData.password){
-        errorArray.push("password is required");
+    if (!userData.password) {
+      errorsArray.push("Password is required.");
     }
-    setErrors(errorArray);
-    // console.log(errors.length,"error.length");
-    if( errors.length===0){
-        setDisable(false);
-    }else{
-        setDisable(true);
+    setErrors(errorsArray);
+    if (errorsArray.length === 0) {
+      setDisable(false);
+    } else {
+      setDisable(true);
     }
-  },[userData]);
+  }, [userData]);
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <h1>RegisterValidation</h1>
+        <h1>Register</h1>
         <label>Name : </label>
         <br />
         <input
@@ -92,15 +101,19 @@ const[disable , setDisable]=useState(true);
           value={userData.password}
         />
         <br />
-        
-        <br />
-        {errors.map((error,i)=>(
-                <p key={i}>{error}*</p>
+        {errors.length > 0 && (
+          <div>
+            {errors.map((error, i) => (
+              <p key={i}>{error}*</p>
             ))}
-            <input type='submit' value="Register" disabled={disable} />
+          </div>
+        )}
+        <input disabled={disable} type="submit" value="Register" />
+        <br />
       </form>
     </div>
   );
 };
+
 
 export default Registervalidation;

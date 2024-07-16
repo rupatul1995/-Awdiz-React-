@@ -1,10 +1,10 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import Api from "../axiosConfig";
+import Api from "../axiosConfig/index";
 
-const Register = () => {
+
+function Register() {
   const router = useNavigate();
   const [userData, setUserData] = useState({
     name: "",
@@ -19,7 +19,6 @@ const Register = () => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    // api call to backend
     try {
       if (userData.name && userData.email && userData.password) {
         const response = await Api.post("/auth/register" , {userData});
