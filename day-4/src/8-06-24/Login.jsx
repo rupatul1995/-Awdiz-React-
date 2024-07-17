@@ -48,12 +48,10 @@ const Login = () => {
         }
       } else {
         throw Error("All fields are mandatory.");
-        // toast.error("All fields are mandatory.");
+      
       }
     } catch (error) {
       console.log(error, "error");
-      //   console.log(error);
-      //   error =  { data : { success : false, message : "Password is invalid."}}
       toast.error(error?.response?.data?.error);
     }
   }
