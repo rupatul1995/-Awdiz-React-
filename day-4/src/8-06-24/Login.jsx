@@ -34,7 +34,7 @@ const Login = () => {
         //   },
         // };
         if (response.data.success) {
-          dispatch({ type: "LOGIN", payload:response.data.userData });
+          dispatch({ type: "LOGIN", payload: response.data.userData });
           // LOGIN(userData)
           setUserData({
             email: "",
@@ -48,13 +48,16 @@ const Login = () => {
         }
       } else {
         throw Error("All fields are mandatory.");
-      
+        // toast.error("All fields are mandatory.");
       }
     } catch (error) {
       console.log(error, "error");
+      //   console.log(error);
+      //   error =  { data : { success : false, message : "Password is invalid."}}
       toast.error(error?.response?.data?.error);
     }
   }
+
   return (
     <div>
       <form onSubmit={handleSubmit}>

@@ -1,12 +1,15 @@
 import { createContext, useEffect, useReducer } from "react";
 import Api from "../axiosConfig";
 import toast from "react-hot-toast";
+
+
+
 function reducer(state, action){
 
     switch(action.type){
         case "Login":
         return {...state,  user : action.payload};
-        case "Loginout":
+        case "Logout":
         return {...state,  user :null};
         default :
         return state;
@@ -25,7 +28,7 @@ function MyContextProvider({children})  {   //higher order componant
         try {
           const response = await Api.get("/auth/get-current-user");
           if (response.data.success) {
-            dispatch({ type: "LOGIN", payload: response.data.userData });
+            dispatch({ type: "Login", payload: response.data.userData });
           }
         } catch (error) {
           toast.error(error?.response?.data?.error);
