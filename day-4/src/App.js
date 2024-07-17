@@ -64,7 +64,7 @@ function App() {
         <Route path="/Inline-styling" element={<InlineStyling/>}/>
         <Route path="/Todo" element={<Todo/>}/>
         <Route path="/Register" element={<Register/>}/>
-        <Route path="/Login" element={<Login/>}/>
+        <Route path="/login" element={<Login/>}/>
         <Route path="/Registervalidation" element={<Registervalidation/>}/>
         <Route path="/loginvalidation" element={<Loginvalidation/>}/>
         <Route path="/Successlogin" element={<Successlogin/>}/>

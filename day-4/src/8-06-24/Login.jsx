@@ -34,7 +34,7 @@ const Login = () => {
         //   },
         // };
         if (response.data.success) {
-          dispatch({ type: "LOGIN", payload: response.data.userData });
+          dispatch({ type: "LOGIN", payload:response.data.userData });
           // LOGIN(userData)
           setUserData({
             email: "",
