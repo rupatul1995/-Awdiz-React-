@@ -1,20 +1,24 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import Api from "../axiosConfig/index";
+import Api from "../axiosConfig";
 
-
-function Register() {
+const Register = () => {
   const router = useNavigate();
   const [userData, setUserData] = useState({
     name: "",
     email: "",
     password: "",
   });
+  const [errors, setErrors] = useState([]);
+  const [disable, setDisable] = useState(true);
+  console.log(errors, "errors");
 
   console.log(userData, "userData");
   function handleChange(event) {
+    // console.log(event.target.value, event.target.name);
     setUserData({ ...userData, [event.target.name]: event.target.value });
+    // Obj["awdiz"]
   }
 
   async function handleSubmit(e) {
@@ -47,6 +51,25 @@ function Register() {
     }
   }
 
+  useEffect(() => {
+    const errorsArray = [];
+    if (!userData.name) {
+      errorsArray.push("Name is required.");
+    }
+    if (!userData.email) {
+      errorsArray.push("Email is required.");
+    }
+    if (!userData.password) {
+      errorsArray.push("Password is required.");
+    }
+    setErrors(errorsArray);
+    if (errorsArray.length ===0) {
+      setDisable(false);
+    } else {
+      setDisable(true);
+    }
+  }, [userData]);
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -78,7 +101,14 @@ function Register() {
           value={userData.password}
         />
         <br />
-        <input type="submit" value="Register" />
+        {errors.length > 0 && (
+          <div>
+            {errors.map((error, i) => (
+              <p key={i}>{error}*</p>
+            ))}
+          </div>
+        )}
+        <input disabled={disable} type="submit" value="Register" />
         <br />
       </form>
     </div>
@@ -86,7 +116,6 @@ function Register() {
 };
 
 export default Register;
-
 
 // function Register(){
 //   const router=useNavigate();

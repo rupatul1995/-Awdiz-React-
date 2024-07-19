@@ -31,16 +31,10 @@ import MemoComponent from "./29-06-24/MemoComponent";
 import UseMemoComponent from "./29-06-24/UseMemoComponent";
 import UseRefComponent from "./30-06-24/UseRefComponent";
 import UseRefComponent2 from "./30-06-24/UseRefComponent2";
-
-
-
-
-
-
-
-
-
-
+import Logout from "./context/Logout";
+import AdminRegister from "./admin/AdminRegister";
+import AdminLogin from "./admin/AdminLogin";
+import CreateNewProduct from "./admin/CreateNewProduct";
 
 
 
@@ -80,7 +74,10 @@ function App() {
         <Route path="/use-memocomponent" element={<UseMemoComponent/>}/>
         <Route path="/userefcomponent" element={<UseRefComponent  />} /> 
         <Route path="/userefcomponent2" element={<UseRefComponent2/>} /> 
-        
+        <Route path="/logout" element={<Logout/>}/>
+        <Route path="/adminregister" element={<AdminRegister/>}/>
+        <Route path="/adminlogin" element={<AdminLogin/>}/>
+        <Route path="/createproducts"  element={<CreateNewProduct/>}/>
         
       </Routes>
     </div>

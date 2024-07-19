@@ -4,39 +4,29 @@ import toast from "react-hot-toast";
 import { AuthContext } from "../context/auth.context";
 import Api from "../axiosConfig";
 
-const Login = () => {
+const AdminLogin = () => {
   const { dispatch } = useContext(AuthContext);
 
   const router = useNavigate();
-  const [userData, setUserData] = useState({
+  const [adminData, setAdminData] = useState({
     email: "",
     password: "",
   });
 
-  console.log(userData, "userData");
+  console.log(adminData, "adminData");
   function handleChange(event) {
-    // console.log(event.target.value, event.target.name);
-    setUserData({ ...userData, [event.target.name]: event.target.value });
-    // Obj["awdiz"]
+    setAdminData({ ...adminData, [event.target.name]: event.target.value });
+   
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
-    // api call to backend
     try {
-      if (userData.email && userData.password) {
-          const response = await Api.post("/auth/login" , {userData});
-        // const response = {
-        //   data: {
-        //     success: true,
-        //     message: "Login successfull.",
-        //     userData: { name: "Awdiz" },
-        //   },
-        // };
+      if (adminData.email && adminData.password) {
+          const response = await Api.post("/admin/adminlogin" , {adminData});
         if (response.data.success) {
-          dispatch({ type: "LOGIN", payload: response.data.userData });
-          // LOGIN(userData)
-          setUserData({
+          dispatch({ type: "LOGIN", payload: response.data.adminData });
+          setAdminData({
             email: "",
             password: "",
           });
@@ -44,16 +34,12 @@ const Login = () => {
           toast.success(response.data.message);
         } else {
           toast.error(response?.data?.error)
-          // console.log(response.data.error, "error")
         }
       } else {
         throw Error("All fields are mandatory.");
-        // toast.error("All fields are mandatory.");
       }
     } catch (error) {
       console.log(error, "error");
-      //   console.log(error);
-      //   error =  { data : { success : false, message : "Password is invalid."}}
       toast.error(error?.response?.data?.error);
     }
   }
@@ -68,7 +54,7 @@ const Login = () => {
           type="email"
           onChange={handleChange}
           name="email"
-          value={userData.email}
+          value={adminData.email}
         />
         <br />
         <label>Password : </label>
@@ -77,7 +63,7 @@ const Login = () => {
           type="password"
           onChange={handleChange}
           name="password"
-          value={userData.password}
+          value={adminData.password}
         />
         <br />
         <input type="submit" value="Login" />
@@ -87,4 +73,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default AdminLogin;
