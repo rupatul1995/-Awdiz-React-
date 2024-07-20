@@ -35,6 +35,7 @@ import Logout from "./context/Logout";
 import AdminRegister from "./admin/AdminRegister";
 import AdminLogin from "./admin/AdminLogin";
 import CreateNewProduct from "./admin/CreateNewProduct";
+import CreateProducts from "./admin/CreateProducts";
 
 
 
@@ -77,8 +78,8 @@ function App() {
         <Route path="/logout" element={<Logout/>}/>
         <Route path="/adminregister" element={<AdminRegister/>}/>
         <Route path="/adminlogin" element={<AdminLogin/>}/>
-        <Route path="/createproducts"  element={<CreateNewProduct/>}/>
-        
+        <Route path="/createnewproducts"  element={<CreateNewProduct/>}/>
+        <Route path="/createproducts"  element={<CreateProducts/>}/>
       </Routes>
     </div>
   );

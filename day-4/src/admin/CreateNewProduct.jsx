@@ -3,12 +3,15 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import Api from "../axiosConfig";
 
-function CreateNewProduct ()  {
-  const router = useNavigate();
+
+
+function CreateNewProduct(){
+    const router = useNavigate();
   const [productData, setProductData] = useState({
     name: "",
-    email: "",
-    password: "",
+    price: "",
+    category: "",
+    quantity:"",
   });
   const [errors, setErrors] = useState([]);
   const [disable, setDisable] = useState(true);
@@ -16,24 +19,25 @@ function CreateNewProduct ()  {
 
   console.log(productData, "productData");
   function handleChange(event) {
-
     setProductData({ ...productData, [event.target.name]: event.target.value });
-    
+   
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
-    
+  
     try {
-      if (productData.name && productData.email && productData.password) {
-          const response = await Api.post("/admin/create-new-roduct" , {productData});
+      if (productData.name && productData.price && productData.category && productData.quantity) {
+          const response = await Api.post("/product/create-new-product" , {productData});
+    
         if (response.data.success) {
             setProductData({
             name: "",
-            email: "",
-            password: "",
+            price: "",
+            category: "",
+            quantity:"",
           });
-          router("/");
+          router("/createproducts");
           toast.success(response.data.message);
         }
       } else {
@@ -50,11 +54,14 @@ function CreateNewProduct ()  {
     if (!productData.name) {
       errorsArray.push("Name is required.");
     }
-    if (!productData.email) {
-      errorsArray.push("Email is required.");
+    if (!productData.price) {
+      errorsArray.push("Price is required.");
     }
-    if (!productData.password) {
-      errorsArray.push("Password is required.");
+    if (!productData.category) {
+      errorsArray.push("Category is required.");
+    }
+    if (!productData.quantity) {
+      errorsArray.push("Quantity is required.");
     }
     setErrors(errorsArray);
     if (errorsArray.length ===0) {
@@ -64,49 +71,50 @@ function CreateNewProduct ()  {
     }
   }, [productData]);
 
-  return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <h1>Register</h1>
-        <label>Name : </label>
-        <br />
-        <input
-          type="text"
-          onChange={handleChange}
-          name="name"
-          value={productData.name}
-        />
-        <br />
-        <label>Email : </label>
-        <br />
-        <input
-          type="email"
-          onChange={handleChange}
-          name="email"
-          value={productData.email}
-        />
-        <br />
-        <label>Password : </label>
-        <br />
-        <input
-          type="password"
-          onChange={handleChange}
-          name="password"
-          value={productData.password}
-        />
-        <br />
-        {errors.length > 0 && (
+        return (
           <div>
-            {errors.map((error, i) => (
-              <p key={i}>{error}*</p>
-            ))}
+            <form onSubmit={handleSubmit}>
+              <h1> Add New Product</h1>
+              <label>Name : </label>
+              <br />
+              <input
+                type="text"
+                onChange={handleChange}
+                name="name"
+                value={productData.name}
+              />
+              <br />
+              <label>Price : </label>
+              <br />
+              <input
+                type="number"
+                onChange={handleChange}
+                name="price"
+                value={productData.price}
+              />
+              <br />
+              <label>Category : </label>
+              <br />
+              <input
+                type="text"
+                onChange={handleChange}
+                name="category"
+                value={productData.category}
+              />
+              <br />
+              <label>Quantity : </label>
+              <br />
+              <input
+                type="number"
+                onChange={handleChange}
+                name="quantity"
+                value={productData.quantity}
+              />
+              <br />
+              <input disabled={disable} type="submit" value="Add Product" />
+              <br />
+            </form>
           </div>
-        )}
-        <input disabled={disable} type="submit" value="Register" />
-        <br />
-      </form>
-    </div>
-  );
-};
-
+    );
+}
 export default CreateNewProduct;

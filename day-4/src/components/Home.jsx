@@ -32,8 +32,8 @@ const router=useNavigate();
     return (        
     <div style={{backgroundColor:themeState.theme ==="LIGHT"?"yellow":"grey",}}>
       
-    <h1>Home page:-{state?.counter }</h1>
-    <h1>Home page:-{state?.user?.name }</h1>
+    {/* <h1>Home page:-{state?.counter }</h1> */}
+    <h1>Home page:-{state?.user?.name}</h1>
     <button onClick={handleLogout}>Logout</button>
     <button onClick={()=>router("/counter")}> Go to Counter</button>
     <button onClick={()=>router("/useNavigate")}>Redirect to Routing page</button>

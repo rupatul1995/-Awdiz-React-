@@ -27,7 +27,7 @@ const AdminRegister = () => {
   
     try {
       if (adminData.name && adminData.email && adminData.password) {
-          const response = await Api.post("/admin/adminregister" , {adminData});
+          const response = await Api.post("/admin/admin-register" , {adminData});
     
         if (response.data.success) {
             setAdminData({

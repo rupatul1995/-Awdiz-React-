@@ -23,7 +23,7 @@ const AdminLogin = () => {
     e.preventDefault();
     try {
       if (adminData.email && adminData.password) {
-          const response = await Api.post("/admin/adminlogin" , {adminData});
+          const response = await Api.post("/admin/admin-login" , {adminData});
         if (response.data.success) {
           dispatch({ type: "LOGIN", payload: response.data.adminData });
           setAdminData({
