@@ -78,7 +78,7 @@ function App() {
         <Route path="/logout" element={<Logout/>}/>
         <Route path="/adminregister" element={<AdminRegister/>}/>
         <Route path="/adminlogin" element={<AdminLogin/>}/>
-        <Route path="/createnewproducts"  element={<CreateNewProduct/>}/>
+        <Route path="/create-newproducts"  element={<CreateNewProduct/>}/>
         <Route path="/createproducts"  element={<CreateProducts/>}/>
       </Routes>
     </div>
