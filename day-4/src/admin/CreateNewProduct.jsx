@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import Api from "../axiosConfig";
+import { AuthContext } from "../context/auth.context";
 
 function CreateNewProduct ()  {
+  const { state } = useContext(AuthContext);
+  console.log(state ,"state");
   const router = useNavigate();
   const [productData, setProductData] = useState({
     name: "",
@@ -87,6 +90,21 @@ function CreateNewProduct ()  {
       setDisable(true);
     }
   }, [productData]);
+
+
+
+  useEffect(() => {
+    if (state?.user) {
+      console.log(state?.user, "state?.user in add product");
+      if (state?.user?.role !== "admin") {
+        toast.error("You are not allowred to access this page.");
+        router("/");
+      }
+    } else {
+      toast.error("Login to access page.");
+      router("/login");
+    }
+  }, [state]);
 
   return (
     <div>

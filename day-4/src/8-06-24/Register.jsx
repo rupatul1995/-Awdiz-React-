@@ -26,7 +26,7 @@ const Register = () => {
     // api call to backend
     try {
       if (userData.name && userData.email && userData.password) {
-          const response = await Api.post("/auth/register" , {userData});
+        const response = await Api.post("/auth/register", { userData });
         // const response = {
         //   data: { success: true, message: "Regsiter successfull." },
         // };
@@ -36,7 +36,7 @@ const Register = () => {
             email: "",
             password: "",
           });
-          router ("/login");
+          router("/login");
           toast.success(response.data.message);
         }
       } else {
@@ -63,7 +63,7 @@ const Register = () => {
       errorsArray.push("Password is required.");
     }
     setErrors(errorsArray);
-    if (errorsArray.length ===0) {
+    if (errorsArray.length == 0) {
       setDisable(false);
     } else {
       setDisable(true);
@@ -108,14 +108,18 @@ const Register = () => {
             ))}
           </div>
         )}
-        <input disabled={disable} type="submit" value="Register" />
-        <br />
+        {/* <input disabled={disable} type="submit" value="Register" />
+        <br /> */}  
       </form>
+      <button onClick={() => router("/login")}>Register</button>
     </div>
   );
 };
 
 export default Register;
+
+
+
 
 // function Register(){
 //   const router=useNavigate();

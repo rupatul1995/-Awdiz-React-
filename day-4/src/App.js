@@ -37,6 +37,7 @@ import AdminLogin from "./admin/AdminLogin";
 import CreateNewProduct from "./admin/CreateNewProduct";
 import CreateProducts from "./admin/CreateProducts";
 import AllProduct from "./20-7/AllProduct";
+import Navbar from "./21-07/Navbar";
 // import AuthRedirection from "./21-07/AuthRedirection";
 
 
@@ -46,7 +47,9 @@ import AllProduct from "./20-7/AllProduct";
 function App() {
   return (
     <div className="App">
+       <Navbar/>
       <Routes>
+       
       <Route  path="/*" element={<NotFound/>} />
         <Route  path="/" element={<Home/>} />
         <Route  path="/UseState" element={<UseState/>} />

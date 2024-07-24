@@ -5,7 +5,7 @@ import { AuthContext } from "../context/auth.context";
 import Api from "../axiosConfig";
 
 const Login = () => {
-  const { dispatch } = useContext(AuthContext);
+  const { state, dispatch } = useContext(AuthContext);
 
   const router = useNavigate();
   const [userData, setUserData] = useState({
@@ -25,7 +25,7 @@ const Login = () => {
     // api call to backend
     try {
       if (userData.email && userData.password) {
-          const response = await Api.post("/auth/login" , {userData});
+        const response = await Api.post("/auth/login", { userData });
         // const response = {
         //   data: {
         //     success: true,
@@ -43,7 +43,7 @@ const Login = () => {
           router("/");
           toast.success(response.data.message);
         } else {
-          toast.error(response?.data?.error)
+          toast.error(response?.data?.error);
           // console.log(response.data.error, "error")
         }
       } else {
@@ -82,7 +82,12 @@ const Login = () => {
         <br />
         <input type="submit" value="Login" />
         <br />
-      </form>
+       </form>
+      {/* <button onClick={() => router("/register")}>Register</button>
+      <button onClick={() => router("/admin-register")}>
+        Admin Register 
+      </button>
+      <button onClick={() => router("/admin-login")}>Admin Login </button>  */}
     </div>
   );
 };
