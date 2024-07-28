@@ -82,14 +82,15 @@ const Login = () => {
         <br />
         <input type="submit" value="Login" />
         <br />
-       </form>
-      {/* <button onClick={() => router("/register")}>Register</button>
+      </form>
+      <button onClick={() => router("/register")}>Register ?</button>
       <button onClick={() => router("/admin-register")}>
-        Admin Register 
+        Admin Register ?
       </button>
-      <button onClick={() => router("/admin-login")}>Admin Login </button>  */}
+      <button onClick={() => router("/admin-login")}>Admin Login ?</button>
     </div>
   );
 };
 
 export default Login;
+

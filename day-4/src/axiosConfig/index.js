@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const Api = axios.create({
-  baseURL: "https://awdiz-backend-kkzj.onrender.com",
+  baseURL: "http://localhost:8000/api/vi",
   withCredentials: true,
 });
 

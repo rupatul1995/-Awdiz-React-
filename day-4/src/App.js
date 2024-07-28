@@ -9,7 +9,7 @@ import UseEffect3 from "./29-05-24/UseEffect3";
 import Routing from "./30-05-24/Routing";
 import UserDetails from "./30-05-24/UserDetails";
 import Mapping from "./2-05-24/Mapping";
-// import AllProducts from "./30-05-24/AllProducts";
+import AllProducts from "./30-05-24/AllProducts";
 import FunctionProp from "./4-05-24/FunctionProp";
 import StyleComponent from "./4-05-24/StyleComponent";
 import InlineStyling from "./4-05-24/InlineStyling";
@@ -38,7 +38,8 @@ import CreateNewProduct from "./admin/CreateNewProduct";
 import CreateProducts from "./admin/CreateProducts";
 import AllProduct from "./20-7/AllProduct";
 import Navbar from "./21-07/Navbar";
-// import AuthRedirection from "./21-07/AuthRedirection";
+import SingleProduct from "./27-07/SingleProduct";
+// import AuthRedirection from "./21-07/AuthRedirection"; 
 
 
 
@@ -60,7 +61,7 @@ function App() {
         <Route  path="/user/:username/:id" element={<UserDetails/>}/>
         <Route  path="/user/:username/:Id" element={<UserDetails/>}/>
         < Route path="/Mapping" element={< Mapping  students={["virat","rohit","rahul"]}/>}/>
-        {/* < Route  path="/all-product" element={< AllProducts/>}/> */}
+        < Route  path="/all-product" element={< AllProducts/>}/>
         <Route path="/function-prop" element={<FunctionProp/>}/>
         <Route path="/StyledComponent" element={<StyleComponent/>}/>
         <Route path="/Inline-styling" element={<InlineStyling/>}/>
@@ -87,7 +88,10 @@ function App() {
         <Route path="/adminlogin" element={<AdminLogin/>}/>
         <Route path="/create-newproducts"  element={<CreateNewProduct/>}/>
         <Route path="/createproducts"  element={<CreateProducts/>}/>
-        < Route  path="/allproduct" element={< AllProduct/>}/>
+        <Route  path="/all-product" element={< AllProduct/>}/>
+
+        <Route path="/single-product"  element={<SingleProduct/>}/>
+        <Route path="/single-product"  element={<SingleProduct/>}/>
        
         {/* < Route  path="/auth-redirection" element={< AuthRedirection/>}/> */}
       </Routes>

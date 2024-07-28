@@ -1,23 +1,23 @@
-import { useEffect, useState } from "react";
-// import axios from "axios";
+import { useContext, useEffect, useState } from "react";
 import Api from "../axiosConfig";
-// import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
 
-function AllProducts() {
+function YourAddedProducts() {
   const [allProducts, setAllProducts] = useState([]);
   console.log(allProducts, "allProducts");
   const [loading, setLoading] = useState(false);
-  // const router  = useNavigate()
+  const { state } = useContext(AuthContext);
 
   async function GetProducts() {
-    // alert("Hi from get Products.");
     setLoading(true);
     try {
-      const response = await Api.get("/product/get-all-product"); // change
+      const response = await Api.post("/admin/your-added-products", {
+        userId: state?.user?.userId,
+      }); 
       if (response.data.success) {
-        //   console.log(response.data);
+        
         setLoading(false);
-        setAllProducts(response.data.products); // change
+        setAllProducts(response.data.products);
       }
     } catch (error) {
       console.log(error);
@@ -25,9 +25,10 @@ function AllProducts() {
   }
 
   useEffect(() => {
-    // api call to backend
-    GetProducts();
-  }, []);
+    if (state) {
+      GetProducts();
+    }
+  }, [state]);
 
   return (
     <div>
@@ -35,7 +36,9 @@ function AllProducts() {
       {loading ? (
         <div>
           <h1>Loading...</h1>
-         
+         tifyContent: "space-around",
+            
+
         </div>
       ) : (
         <div
@@ -52,9 +55,7 @@ function AllProducts() {
                 height: "350px",
                 border: "2px solid black",
                 marginBottom: "20px",
-                cursor: "pointer",
               }}
-              // onClick={() => router(`/product/${product._id}`)}
             >
               <img
                 style={{ width: "80%", height: "70%" }}
@@ -70,4 +71,4 @@ function AllProducts() {
   );
 }
 
-export default AllProducts;
+export default YourAddedProducts;
