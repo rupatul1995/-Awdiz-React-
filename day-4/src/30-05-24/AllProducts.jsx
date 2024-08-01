@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import Api from "../axiosConfig";
+import { useNavigate } from "react-router-dom";
 
 function AllProducts() {
   const [allProducts, setAllProducts] = useState([]);
   console.log(allProducts, "allProducts");
   const [loading, setLoading] = useState(false);
+  const router=useNavigate();
 
   async function GetProducts() {
     setLoading(true);
@@ -48,7 +50,7 @@ function AllProducts() {
                 marginBottom: "20px",
                 cursor: "pointer",
               }}
-              // onClick={() => router(`/product/${product._id}`)}
+              onClick={() => router(`/product/${product._id}`)}
             >
               <img
                 style={{ width: "80%", height: "70%" }}

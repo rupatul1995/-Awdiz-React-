@@ -32,8 +32,6 @@ import UseMemoComponent from "./29-06-24/UseMemoComponent";
 import UseRefComponent from "./30-06-24/UseRefComponent";
 import UseRefComponent2 from "./30-06-24/UseRefComponent2";
 import Logout from "./context/Logout";
-import CreateNewProduct from "./admin/CreateNewProduct";
-import CreateProducts from "./admin/CreateProducts";
 import Navbar from "./21-07/Navbar";
 import AddProduct from "./20-7/AddProduct";
 import RegisterAdmin from "./admin/RegisterAdmin";
@@ -88,8 +86,6 @@ function App() {
         <Route path="/logout" element={<Logout/>}/>
         <Route path="/register-admin" element={<RegisterAdmin/>}/>
         <Route path="/login-admin" element={<LoginAdmin/>}/>
-        <Route path="/create-newproducts"  element={<CreateNewProduct/>}/>
-        <Route path="/createproducts"  element={<CreateProducts/>}/>
         <Route  path="/add-product" element={< AddProduct/>}/>
         <Route path="/product/:id" element={<SingleProductPage />} />
         <Route path="/your-added-product"  element={<YourAddedProducts/>}/>

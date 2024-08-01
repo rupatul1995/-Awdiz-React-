@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Api from "../axiosConfig";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const [products, setProducts] = useState([]);
@@ -29,7 +29,7 @@ const Cart = () => {
       {loading ? (
         <div>
           <h1>Loading...</h1>
-          
+         
         </div>
       ) : (
         <div
@@ -48,7 +48,7 @@ const Cart = () => {
                 marginBottom: "20px",
                 cursor: "pointer",
               }}
-              onClick={() => router(`/products/${product._id}`)}
+              onClick={() => router(`/product/${product._id}`)}
             >
               <img
                 style={{ width: "80%", height: "70%" }}

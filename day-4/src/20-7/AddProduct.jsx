@@ -52,7 +52,7 @@ const AddProduct = () => {
             quantity: "",
             image: "",
           });
-          router("/all-products");
+          router("/all-product");
           toast.success(response.data.message);
         }
       } else {

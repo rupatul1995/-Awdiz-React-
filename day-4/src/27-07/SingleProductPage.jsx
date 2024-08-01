@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import Api from "../axiosConfig";
-import { AuthContext } from "../context/auth.context";
 import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
+import Api from "../axiosConfig";
 
 const SingleProductPage = () => {
-  const {id} = useParams();
+  const { id } = useParams();
   const [loading, setLoading] = useState(false);
   const [product, setProduct] = useState({});
   const { state } = useContext(AuthContext);
@@ -43,7 +43,7 @@ const SingleProductPage = () => {
     if (id) {
       getSingleProductData();
     }
-  }, [id]);
+  },[id]);
   return (
     <div>
       <h1>Single Product Page</h1>
@@ -69,6 +69,7 @@ const SingleProductPage = () => {
 };
 
 export default SingleProductPage;
+
 
 // Cart
 
