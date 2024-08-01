@@ -15,9 +15,7 @@ const Login = () => {
 
   console.log(userData, "userData");
   function handleChange(event) {
-    // console.log(event.target.value, event.target.name);
     setUserData({ ...userData, [event.target.name]: event.target.value });
-    // Obj["awdiz"]
   }
 
   async function handleSubmit(e) {
@@ -35,7 +33,6 @@ const Login = () => {
         // };
         if (response.data.success) {
           dispatch({ type: "LOGIN", payload: response.data.userData });
-          // LOGIN(userData)
           setUserData({
             email: "",
             password: "",
@@ -44,16 +41,12 @@ const Login = () => {
           toast.success(response.data.message);
         } else {
           toast.error(response?.data?.error);
-          // console.log(response.data.error, "error")
         }
       } else {
         throw Error("All fields are mandatory.");
-        // toast.error("All fields are mandatory.");
       }
     } catch (error) {
       console.log(error, "error");
-      //   console.log(error);
-      //   error =  { data : { success : false, message : "Password is invalid."}}
       toast.error(error?.response?.data?.error);
     }
   }
@@ -84,13 +77,12 @@ const Login = () => {
         <br />
       </form>
       <button onClick={() => router("/register")}>Register ?</button>
-      <button onClick={() => router("/admin-register")}>
+      <button onClick={() => router("/register-admin")}>
         Admin Register ?
       </button>
-      <button onClick={() => router("/admin-login")}>Admin Login ?</button>
+      <button onClick={() => router("/login-admin")}>Admin Login ?</button>
     </div>
   );
 };
 
 export default Login;
-

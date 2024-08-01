@@ -9,15 +9,16 @@ function YourAddedProducts() {
   const { state } = useContext(AuthContext);
 
   async function GetProducts() {
+    // alert("Hi from get Products.");
     setLoading(true);
     try {
       const response = await Api.post("/admin/your-added-products", {
         userId: state?.user?.userId,
-      }); 
+      }); // change
       if (response.data.success) {
-        
+        //   console.log(response.data);
         setLoading(false);
-        setAllProducts(response.data.products);
+        setAllProducts(response.data.products); // change
       }
     } catch (error) {
       console.log(error);
@@ -25,6 +26,7 @@ function YourAddedProducts() {
   }
 
   useEffect(() => {
+    // api call to backend
     if (state) {
       GetProducts();
     }
@@ -36,9 +38,7 @@ function YourAddedProducts() {
       {loading ? (
         <div>
           <h1>Loading...</h1>
-         tifyContent: "space-around",
-            
-
+         
         </div>
       ) : (
         <div

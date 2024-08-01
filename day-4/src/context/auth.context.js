@@ -20,8 +20,6 @@ export const AuthContext = createContext();
 
 function MyContextProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
-  // Higher Order Component
-
   async function getCurrentUser() {
     try {
       const response = await Api.get("/auth/get-current-user");
@@ -45,3 +43,4 @@ function MyContextProvider({ children }) {
 }
 
 export default MyContextProvider;
+

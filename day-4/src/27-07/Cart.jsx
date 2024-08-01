@@ -1,35 +1,35 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Api from "../axiosConfig";
 
-function AllProducts() {
-  const [allProducts, setAllProducts] = useState([]);
-  console.log(allProducts, "allProducts");
+const Cart = () => {
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
-
-  async function GetProducts() {
+  const router = useNavigate();
+  console.log(products, "products");
+  async function getAllCartProducts() {
     setLoading(true);
     try {
-      const response = await Api.get("/product/get-all-product"); 
+      const response = await Api.get("/user/get-all-cart-product");
       if (response.data.success) {
+        setProducts(response.data.cartProducts);
         setLoading(false);
-        setAllProducts(response.data.products); 
       }
     } catch (error) {
-      console.log(error);
+      console.log(error, "error");
     }
   }
 
   useEffect(() => {
-    GetProducts();
+    getAllCartProducts();
   }, []);
-
   return (
     <div>
-      <h1>All Products</h1>
+      <h1>Cart Products</h1>
       {loading ? (
         <div>
           <h1>Loading...</h1>
-         
+          
         </div>
       ) : (
         <div
@@ -39,7 +39,7 @@ function AllProducts() {
             justifyContent: "space-around",
           }}
         >
-          {allProducts.map((product) => (
+          {products.map((product) => (
             <div
               style={{
                 width: "23%",
@@ -48,7 +48,7 @@ function AllProducts() {
                 marginBottom: "20px",
                 cursor: "pointer",
               }}
-              // onClick={() => router(`/product/${product._id}`)}
+              onClick={() => router(`/products/${product._id}`)}
             >
               <img
                 style={{ width: "80%", height: "70%" }}
@@ -62,6 +62,6 @@ function AllProducts() {
       )}
     </div>
   );
-}
+};
 
-export default AllProducts;
+export default Cart;

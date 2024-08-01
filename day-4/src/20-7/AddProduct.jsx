@@ -4,10 +4,9 @@ import toast from "react-hot-toast";
 import Api from "../axiosConfig";
 import { AuthContext } from "../context/auth.context";
 
-
-const AllProduct = () => {
+const AddProduct = () => {
   const { state } = useContext(AuthContext);
-  // console.log(state, "state");
+  console.log(state, "state");
   const router = useNavigate();
   const [productData, setProductData] = useState({
     name: "",
@@ -40,6 +39,7 @@ const AllProduct = () => {
       ) {
         const response = await Api.post("/product/create-new-product", {
           productData,
+          userId : state?.user?.userId
         });
         // const response = {
         //   data: { success: true, message: "Regsiter successfull." },
@@ -57,12 +57,9 @@ const AllProduct = () => {
         }
       } else {
         throw Error("All fields are mandatory.");
-        // toast.error("All fields are mandatory.");
       }
     } catch (error) {
       console.log(error, "error");
-      //   console.log(error);
-      //   error =  { data : { success : false, message : "Password is invalid."}}
       toast.error(error.response.data.error);
     }
   }
@@ -85,7 +82,7 @@ const AllProduct = () => {
       errorsArray.push("Image is required.");
     }
     setErrors(errorsArray);
-    if (errorsArray.length === 0) {
+    if (errorsArray.length == 0) {
       setDisable(false);
     } else {
       setDisable(true);
@@ -106,7 +103,6 @@ const AllProduct = () => {
   // }, [state]);
 
   return (
-    // <AuthRedirection>
     <div>
       <form onSubmit={handleSubmit}>
         <h1>Add New Product</h1>
@@ -166,8 +162,7 @@ const AllProduct = () => {
         <br />
       </form>
     </div>
-    // </AuthRedirection>
   );
 };
 
-export default AllProduct;
+export default AddProduct;

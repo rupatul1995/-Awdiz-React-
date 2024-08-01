@@ -32,13 +32,15 @@ import UseMemoComponent from "./29-06-24/UseMemoComponent";
 import UseRefComponent from "./30-06-24/UseRefComponent";
 import UseRefComponent2 from "./30-06-24/UseRefComponent2";
 import Logout from "./context/Logout";
-import AdminRegister from "./admin/AdminRegister";
-import AdminLogin from "./admin/AdminLogin";
 import CreateNewProduct from "./admin/CreateNewProduct";
 import CreateProducts from "./admin/CreateProducts";
-import AllProduct from "./20-7/AllProduct";
 import Navbar from "./21-07/Navbar";
-import SingleProduct from "./27-07/SingleProduct";
+import AddProduct from "./20-7/AddProduct";
+import RegisterAdmin from "./admin/RegisterAdmin";
+import LoginAdmin from "./admin/LoginAdmin";
+import YourAddedProducts from "./27-07/YourAddedProducts";
+import SingleProductPage from "./27-07/SingleProductPage";
+import Cart from "./27-07/Cart";
 // import AuthRedirection from "./21-07/AuthRedirection"; 
 
 
@@ -66,7 +68,7 @@ function App() {
         <Route path="/StyledComponent" element={<StyleComponent/>}/>
         <Route path="/Inline-styling" element={<InlineStyling/>}/>
         <Route path="/Todo" element={<Todo/>}/>
-        <Route path="/Register" element={<Register/>}/>
+        <Route path="/register" element={<Register/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/Registervalidation" element={<Registervalidation/>}/>
         <Route path="/loginvalidation" element={<Loginvalidation/>}/>
@@ -84,14 +86,14 @@ function App() {
         <Route path="/userefcomponent" element={<UseRefComponent/>} /> 
         <Route path="/userefcomponent2" element={<UseRefComponent2/>} /> 
         <Route path="/logout" element={<Logout/>}/>
-        <Route path="/adminregister" element={<AdminRegister/>}/>
-        <Route path="/adminlogin" element={<AdminLogin/>}/>
+        <Route path="/register-admin" element={<RegisterAdmin/>}/>
+        <Route path="/login-admin" element={<LoginAdmin/>}/>
         <Route path="/create-newproducts"  element={<CreateNewProduct/>}/>
         <Route path="/createproducts"  element={<CreateProducts/>}/>
-        <Route  path="/all-product" element={< AllProduct/>}/>
-
-        <Route path="/single-product"  element={<SingleProduct/>}/>
-        <Route path="/single-product"  element={<SingleProduct/>}/>
+        <Route  path="/add-product" element={< AddProduct/>}/>
+        <Route path="/product/:id" element={<SingleProductPage />} />
+        <Route path="/your-added-product"  element={<YourAddedProducts/>}/>
+        <Route path="/cart"  element={<Cart/>}/>
        
         {/* < Route  path="/auth-redirection" element={< AuthRedirection/>}/> */}
       </Routes>

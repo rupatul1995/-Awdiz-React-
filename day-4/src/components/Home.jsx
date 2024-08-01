@@ -14,22 +14,20 @@ function Home(){
     const{themeState,dispatch}=useContext(themeContext);
 const router=useNavigate();
 
- async function handleLogout(){
-    try{
-        const response =await Api.post("/auth/logout");
-        if(response.data.success){
-            dispatch({type:"LOGOUT"});
+async function handleLogout() {
+    try {
+        const response = await Api.post("/auth/logout");
+        if (response.data.success) {
+            dispatch({ type: "LOGOUT" });
             router("/login");
             toast.success(response.data.message);
-        }else{
-            toast.error("Logout failed");
+        } else {
+            toast.error("Logout failed.");
         }
-    }catch(error){
-        toast.error("Failed to Logout"); 
-
+    } catch (error) {
+        toast.error("Failed to logout.");
     }
- }
-
+}
     return (        
     <div style={{backgroundColor:themeState.theme ==="LIGHT"?"yellow":"grey",}}>
       
