@@ -42,7 +42,7 @@ function AllProducts() {
           }}
         >
           {allProducts.map((product) => (
-            <div
+              <div
               style={{
                 width: "23%",
                 height: "350px",
@@ -67,3 +67,10 @@ function AllProducts() {
 }
 
 export default AllProducts;
+
+
+
+
+
+
+

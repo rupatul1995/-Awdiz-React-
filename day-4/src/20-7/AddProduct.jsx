@@ -157,7 +157,7 @@ const AddProduct = () => {
               <p key={i}>{error}*</p>
             ))}
           </div>
-        )}
+         )}
         <input disabled={disable} type="submit" value="Add" />
         <br />
       </form>
