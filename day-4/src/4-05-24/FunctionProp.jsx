@@ -108,29 +108,29 @@
 // practice :=
 
 
-import { useState } from "react";
+// import { useState } from "react";
 
-function  FunctionProp(){
-    const[counter,setCounter]=useState(0);
-    console.log(counter,"counter");
-    function Increment(){
-         setCounter(counter+1);
-    }
-return(
-<div>
-    <h1>function props</h1>
-    <h1>counter:{counter}</h1>
-    <ChildrentComponent  increment={Increment}/>
-</div>
-);
+// function  FunctionProp(){
+//     const[counter,setCounter]=useState(0);
+//     console.log(counter,"counter");
+//     function Increment(){
+//          setCounter(counter+1);
+//     }
+// return(
+// <div>
+//     <h1>function props</h1>
+//     <h1>counter:{counter}</h1>
+//     <ChildrentComponent  increment={Increment}/>
+// </div>
+// );
 
-function ChildrentComponent(increment){
-    return(
-    <div>
-        <button onClick={Increment}>+</button>
-    </div>
-    );
-}
-}
-export default FunctionProp;
+// function ChildrentComponent(increment){
+//     return(
+//     <div>
+//         <button onClick={Increment}>+</button>
+//     </div>
+//     );
+// }
+// }
+// export default FunctionProp;
 
