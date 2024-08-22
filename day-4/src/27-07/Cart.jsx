@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Api from "../axiosConfig";
+import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
@@ -19,6 +20,22 @@ const Cart = () => {
       console.log(error, "error");
     }
   }
+
+  async function BuyProducts() {
+    setLoading(true);
+    try {
+      const response = await Api.post("/user/buy-products");
+      if (response.data.success) {
+        toast.success(response.data.message);
+        router('/order-page'); // Redirect to order details page
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
 
   useEffect(() => {
     getAllCartProducts();
@@ -48,7 +65,7 @@ const Cart = () => {
                 marginBottom: "20px",
                 cursor: "pointer",
               }}
-              onClick={() => router(`/product/${product._id}`)}
+              // onClick={() => router(`/product/${product._id}`)}
             >
               <img
                 style={{ width: "80%", height: "70%" }}
@@ -56,6 +73,8 @@ const Cart = () => {
               />
               <p>Title : {product.name}</p>
               <p>Price : {product.price}/-</p>
+
+        <button onClick={BuyProducts}>Place Order</button>
             </div>
           ))}
         </div>
