@@ -92,8 +92,8 @@ function App() {
         <Route path="/your-added-product"  element={<YourAddedProducts/>}/>
         <Route path="/cart"  element={<Cart/>}/>
         <Route path="/order-page"  element={<OrderPage/>}/>
-       
-        {/* < Route  path="/auth-redirection" element={< AuthRedirection/>}/> */}
+       <Route path="/list-of-todo" element={<Todo/>}/>       
+       {/* < Route  path="/auth-redirection" element={< AuthRedirection/>}/> */}
       </Routes>
     </div>
   );
