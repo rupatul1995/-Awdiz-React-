@@ -66,7 +66,7 @@ function App() {
         <Route path="/function-prop" element={<FunctionProp/>}/>
         <Route path="/StyledComponent" element={<StyleComponent/>}/>
         <Route path="/Inline-styling" element={<InlineStyling/>}/>
-        <Route path="/Todo" element={<Todo/>}/>
+        <Route path="/todo" element={<Todo/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/Registervalidation" element={<Registervalidation/>}/>
